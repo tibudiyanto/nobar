@@ -15,31 +15,40 @@ const ChatTabs = () => {
       <TabList h="5%">
         {Object.keys(videos).map((name) => {
           const {
-            config: {
-              twitch: { channel },
-            },
+            config 
           } = videos[name];
-          return <Tab>{channel}</Tab>;
+          return <Tab>{config?.youtube?.channel || config.twitch.channel}</Tab>;
         })}
       </TabList>
 
       <TabPanels h="95%" w="100%">
         {Object.keys(videos).map((name) => {
-          const {
-            config: {
-              twitch: { channel },
-            },
-          } = videos[name];
-          return (
-            <TabPanel h={"100%"} w="100%">
-              <TwitchChat
-                theme="dark"
+          if (name === "eno") {
+            return (
+              <iframe
                 height="100%"
-                width={"100%"}
-                channel={channel}
-              ></TwitchChat>
-            </TabPanel>
-          );
+                src="https://www.youtube.com/live_chat?v=o7A3PbOWkVI&embed_domain=pemburuhantu.tibudiyanto.repl.co"
+                width="100%"
+              ></iframe>
+            );
+          } else {
+            const {
+              config: {
+                twitch: { channel },
+              },
+            } = videos[name];
+
+            return (
+              <TabPanel h={"100%"} w="100%">
+                <TwitchChat
+                  theme="dark"
+                  height="100%"
+                  width={"100%"}
+                  channel={channel}
+                ></TwitchChat>
+              </TabPanel>
+            );
+          }
         })}
       </TabPanels>
     </Tabs>

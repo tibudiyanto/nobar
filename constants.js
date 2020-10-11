@@ -30,11 +30,11 @@ const videos = {
     },
   },
   eno: {
-    url: "https://twitch.tv/izzyxizzy",
+    url: "https://youtu.be/o7A3PbOWkVI",
     config: {
-      twitch: {
-        layout: "video-with-chat",
-        channel: "izzyxizzy",
+      youtube: {
+        controls:'1',
+        channel: "Eno Bening",
         parent: ["pemburuhantu.tibudiyanto.repl.co"],
       },
     },

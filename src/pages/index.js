@@ -7,6 +7,7 @@ import ReactPlayer from "react-player";
 
 import RGL, { WidthProvider } from "react-grid-layout";
 import { ChatTabs } from "../components/ChatTabs";
+import { videos } from "../../constants";
 
 const ReactGridLayout = WidthProvider(RGL);
 
@@ -18,48 +19,6 @@ const ChatWrapper = ({ ...props }) => {
   );
 };
 
-const videos = {
-  kevin: {
-    url: "https://twitch.tv/kevinanggara",
-    config: {
-      twitch: {
-        layout: "video-with-chat",
-        channel: "kevinanggara",
-        parent: ["pemburuhantu.tibudiyanto.repl.co"],
-      },
-    },
-  },
-  ricky: {
-    url: "https://twitch.tv/sihksihk",
-    config: {
-      twitch: {
-        layout: "video-with-chat",
-        channel: "sihksihk",
-        parent: ["pemburuhantu.tibudiyanto.repl.co"],
-      },
-    },
-  },
-  izzy: {
-    url: "https://twitch.tv/izzyxizzy",
-    config: {
-      twitch: {
-        layout: "video-with-chat",
-        channel: "izzyxizzy",
-        parent: ["pemburuhantu.tibudiyanto.repl.co"],
-      },
-    },
-  },
-  eno: {
-    url: "https://twitch.tv/izzyxizzy",
-    config: {
-      twitch: {
-        layout: "video-with-chat",
-        channel: "izzyxizzy",
-        parent: ["pemburuhantu.tibudiyanto.repl.co"],
-      },
-    },
-  },
-};
 
 const Wrapper = React.forwardRef((props, ref) => {
   const {
