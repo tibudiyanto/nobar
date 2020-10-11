@@ -1,7 +1,6 @@
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/core";
 import dynamic from "next/dynamic";
 import { videos } from "../../constants";
-import { Container } from "./Container";
 
 const TwitchChat = dynamic(
   () => {
@@ -18,7 +17,7 @@ const ChatTabs = () => {
           const {
             config 
           } = videos[name];
-          return <Tab>{config?.youtube?.channel || config.twitch.channel}</Tab>;
+          return <Tab key={`tab-${name}`}>{config?.youtube?.channel || config.twitch.channel}</Tab>;
         })}
       </TabList>
 
@@ -26,7 +25,7 @@ const ChatTabs = () => {
         {Object.keys(videos).map((name) => {
           if (name === "eno") {
             return (
-              <TabPanel h={"100%"} w="100%">
+              <TabPanel h={"100%"} w="100%" key={`tab-panel-${name}`}>
               <iframe
                 height="100%"
                 src="https://www.youtube.com/live_chat?v=o7A3PbOWkVI&embed_domain=pemburuhantu.tibudiyanto.repl.co"
@@ -42,7 +41,7 @@ const ChatTabs = () => {
             } = videos[name];
 
             return (
-              <TabPanel h={"100%"} w="100%">
+              <TabPanel h={"100%"} w="100%" key={`tab-panel-${name}`}>
                 <TwitchChat
                   theme="dark"
                   height="100%"
